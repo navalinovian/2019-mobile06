@@ -8,21 +8,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import id.ac.polinema.idealbodyweight.fragments.AboutFragment;
+import id.ac.polinema.idealbodyweight.fragments.BodyMassIndexFragment;
 import id.ac.polinema.idealbodyweight.fragments.BrocaIndexFragment;
 import id.ac.polinema.idealbodyweight.fragments.MenuFragment;
 import id.ac.polinema.idealbodyweight.fragments.ResultFragment;
+import id.ac.polinema.idealbodyweight.util.BodyMassIndex;
 
 public class MainActivity extends AppCompatActivity implements
 		MenuFragment.OnFragmentInteractionListener,
 		BrocaIndexFragment.OnFragmentInteractionListener,
-        ResultFragment.OnFragmentInteractionListener
-        {
+        ResultFragment.OnFragmentInteractionListener,
+		BodyMassIndexFragment.OnFragmentInteractionListener{
 
 	// Deklarasikan atribut Fragment di sini
 	private AboutFragment aboutFragment;
 	MenuFragment menuFragment;
 	private BrocaIndexFragment brocaIndexFragment;
-            private ResultFragment resultFragment;
+	private ResultFragment resultFragment;
+	private BodyMassIndexFragment bodyMassIndexFragment;
+
+
 
 
 
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements
 				.replace(R.id.fragment_container, menuFragment)
 				.commit();
 		brocaIndexFragment = new BrocaIndexFragment();
+		bodyMassIndexFragment = new BodyMassIndexFragment();
         resultFragment = new ResultFragment();
 	}
 
@@ -67,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements
 
 	@Override
 	public void onBodyMassIndexButtonClicked() {
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.fragment_container, bodyMassIndexFragment)
+				.commit();
 
 	}
 
@@ -85,4 +94,12 @@ public class MainActivity extends AppCompatActivity implements
                 .replace(R.id.fragment_container, brocaIndexFragment)
                 .commit();
 	}
-        }
+
+	@Override
+	public void onCalculateBodyMassIndexClicked(float index) {
+		resultFragment.setInformation(String.format("Your Body Mass index is %.2f ",index));
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.fragment_container, resultFragment)
+				.commit();
+	}
+}
