@@ -51,7 +51,7 @@ public class BodyMassIndexFragment extends Fragment {
                         int height = Integer.parseInt(heightString);
                         int weight = Integer.parseInt(weightString);
                         BodyMassIndex bodyMassIndex = new BodyMassIndex(weight, height);
-                        mListener.onCalculateBodyMassIndexClicked(bodyMassIndex.getIndex());
+                        mListener.onCalculateBodyMassIndexClicked(bodyMassIndex.getIndex(), bodyMassIndex.getRange());
                     } else {
                         Toast.makeText(getActivity(), "Please input your weight and input your height", Toast.LENGTH_SHORT).show();
                     }
@@ -94,6 +94,6 @@ public class BodyMassIndexFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onCalculateBodyMassIndexClicked(float index);
+        void onCalculateBodyMassIndexClicked(float index, String range);
     }
 }

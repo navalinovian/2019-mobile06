@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity implements
 	}
 
 	@Override
-	public void onCalculateBodyMassIndexClicked(float index) {
-		resultFragment.setInformation(String.format("Your Body Mass index is %.2f ",index));
+	public void onCalculateBodyMassIndexClicked(float index, String range) {
+		resultFragment.setInformation(String.format("Your Body Mass index is %.2f"+ "\n Classification : " + range,index ));
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.fragment_container, resultFragment)
 				.commit();
