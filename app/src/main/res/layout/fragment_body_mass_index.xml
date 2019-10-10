@@ -62,7 +62,7 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:hint="Input your height(m)"
+        android:hint="Input your height(cm)"
         android:inputType="number|numberDecimal"
         app:layout_constraintLeft_toLeftOf="@id/guideline3"
         app:layout_constraintRight_toRightOf="parent"

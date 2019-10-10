@@ -42,7 +42,7 @@ public class ResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (mListener != null) {
-                    mListener.onTryAgainButtonClicked("BrocaIndex");
+                    mListener.onTryAgainButtonClicked("Terisi");
                 }
             }
         });
